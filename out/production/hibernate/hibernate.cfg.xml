@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--数据库路径url-->
+        <property name="connection.url">jdbc:mysql://192.168.31.120:3306/test</property>
+        <!--驱动名称-->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!--数据库账号-->
+        <property name="connection.username">root</property>
+        <!--数据库密码-->
+        <property name="connection.password">123456</property>
+        <!-- 数据库方言  -->
+        <!-- hibernate是要把Java对象转换成关系数据库来描述的，为了更好适配各种关系数据库 -->
+        <!-- 针对每种数据库都指定了一个方言dialect。-->
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <!-- 控制台是否打印sql语句 -->
+        <property name="show_sql">true</property>
+        <!-- 打印的sql语句是否格式化 -->
+        <property name="format_sql">true</property>
+        <!-- 指定自动生成数据表的策略 -->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- 二选一 -->
+        <!-- 3.1选择这个 -->
+        <mapping class="com.xiao.Entity.UserEntity"/>
+        <!-- 3.2选择这个 -->
+        <mapping resource="com/xiao/mapper/UserEntity.hbm.xml"/>
+
+    </session-factory>
+</hibernate-configuration>
